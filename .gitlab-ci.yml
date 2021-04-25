@@ -1,0 +1,10 @@
+stages:
+  - test
+  
+test:
+  image: docker:latest
+  services:
+    - docker:dind
+  script:
+    - docker build . -t build
+    - docker run --rm -t build
